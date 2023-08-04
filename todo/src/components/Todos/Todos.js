@@ -14,15 +14,15 @@ function Todos() {
     ])
 
     const onDelete = (key) => {
-        const filterTodo = todo.filter((el) => el.id !== key)
-        setTodo(filterTodo)
+        setTodo(todo.filter((el) => el.id !== key))
     }
 
     return (
       <>
           <h1>Задачи</h1>
           <button onClick={ () => {
-              setTodo([...todo, {id: id++, title: 'aaa', description: 'bbb'}])
+              console.log(id)
+              setTodo([...todo, {id: id, title: 'aaa', description: 'bbb'}])
           }}>
               add2
           </button>
