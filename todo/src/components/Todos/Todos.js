@@ -17,12 +17,15 @@ function Todos() {
         setTodo(todo.filter((el) => el.id !== key))
     }
 
+    const createID = () => {
+        return Math.random() * 1000;
+    }
+
     return (
       <>
           <h1>Задачи</h1>
           <button onClick={ () => {
-              console.log(id)
-              setTodo([...todo, {id: id, title: 'aaa', description: 'bbb'}])
+              setTodo([...todo, {id: createID(), title: 'aaa', description: 'bbb'}])
           }}>
               add2
           </button>

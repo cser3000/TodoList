@@ -9,7 +9,6 @@ function Todo({data, onDelete}) {
             <button>выделить</button>
             <button onClick={ () => {
                 onDelete(data.id);
-                console.log(1)
             }
             }>delete</button>
         </li>
