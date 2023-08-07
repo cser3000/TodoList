@@ -27,8 +27,8 @@ function App() {
 
     return (
         <>
-            <Header onChange={handleTodoChange}/>
-            <Todos todo={todo} onDelete={onDelete}/>
+            <Header onChange={handleTodoChange} />
+            <Todos todo={todo} onDelete={onDelete} />
         </>
     );
 }

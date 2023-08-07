@@ -22,9 +22,9 @@ function Header({onChange}) {
         <header>
             <form>
                 <h3>title:</h3>
-                <input onChange={handleTitleChange}/>
+                <input onChange={handleTitleChange} />
                 <h4>description:</h4>
-                <textarea onChange={handleDescriptionChange}/>
+                <textarea onChange={handleDescriptionChange} />
 
             </form>
             <button onClick={handleTodoChange}>
