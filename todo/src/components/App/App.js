@@ -1,17 +1,22 @@
 import './App.css';
 import Header from "../Header";
 import Todos from "../Todos";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 function App() {
 
-    const [todo, setTodo] = useState([
-        {
-            id: 1,
-            title: "заголовок заметки",
-            description: "текст заметки",
-        },
-    ])
+    const [todo, setTodo] = useState([])
+
+    useEffect(() => {
+        fetch("http://localhost:3000/posts")
+            .then((response) => {
+                return response.json();
+            })
+            .then((data) => {
+                console.log({data});
+                setTodo(data)
+            });
+    }, []);
 
     const onDelete = (key) => {
         setTodo(todo.filter((el) => el.id !== key))
@@ -27,8 +32,8 @@ function App() {
 
     return (
         <>
-            <Header onChange={handleTodoChange} />
-            <Todos todo={todo} onDelete={onDelete} />
+            <Header onChange={handleTodoChange}/>
+            <Todos todo={todo} onDelete={onDelete}/>
         </>
     );
 }
