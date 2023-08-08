@@ -1,5 +1,5 @@
 import './Header.css';
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 function Header({onChange}) {
 
@@ -19,15 +19,15 @@ function Header({onChange}) {
     }
 
     return (
-        <header>
-            <form>
+        <header className="headerTodo">
+            <form className="createForm">
                 <h3>title:</h3>
                 <input onChange={handleTitleChange} />
                 <h4>description:</h4>
                 <textarea onChange={handleDescriptionChange} />
 
             </form>
-            <button onClick={handleTodoChange}>
+            <button className="createButton" onClick={handleTodoChange}>
                 add
             </button>
         </header>

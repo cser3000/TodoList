@@ -1,0 +1,17 @@
+
+.todoMain {
+    margin: 50px auto;
+    width: 1000px;
+}
+
+h1 {
+    width: 100px;
+    margin: auto;
+}
+
+.todos {
+    width: 500px;
+    margin: 20px auto;
+    list-style-type: none;
+    padding-left: 0;
+}

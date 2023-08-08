@@ -8,8 +8,8 @@ function App() {
     const [todo, setTodo] = useState([
         {
             id: 1,
-            title: "title1",
-            description: "description1",
+            title: "заголовок заметки",
+            description: "текст заметки",
         },
     ])
 

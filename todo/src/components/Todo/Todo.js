@@ -2,15 +2,16 @@ import './Todo.css';
 
 function Todo({data, onDelete}) {
     return (
-        <li>
+        <li className="todo">
             <button>сделано</button>
-            <h3>{data.title}</h3>
-            <p>{data.description}</p>
+            <div className="todoContent">
+                <h3>{data.title}</h3>
+                <p>{data.description}</p>
+            </div>
             <button>выделить</button>
             <button onClick={ () => {
                 onDelete(data.id);
-            }
-            }>delete</button>
+            }}>delete</button>
         </li>
     )
 }

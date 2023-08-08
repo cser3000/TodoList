@@ -4,12 +4,12 @@ import Todo from "../Todo";
 function Todos({todo, onDelete}) {
 
     return (
-      <>
+      <main className="todoMain">
           <h1>Задачи</h1>
-          <ul>
+          <ul className="todos">
               {todo.map( (todo) => <Todo key={todo.id} data={todo} onDelete={onDelete}/>)}
           </ul>
-      </>
+      </main>
     );
 }
 
