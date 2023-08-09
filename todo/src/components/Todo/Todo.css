@@ -1,7 +1,6 @@
 
 .todo {
     margin: 20px 0;
-    height: 150px;
     background-color: rgb(255, 255, 255);
     border-radius: 30px;
 }
@@ -36,16 +35,11 @@
 }
 
 .todoDescription {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 20px 20px 30px 100px;
+    width: 300px;
     overflow: hidden;
 }
 
 .textTodoTitle {
     width: 160px;
-}
-
-p {
-    width: 300px;
 }

@@ -26,7 +26,7 @@ function Todo({data, onDelete}) {
                 }}>delete</button>
             </div>
             <div className="todoDescription">
-                <p>{data.description}</p>
+                {data.description}
             </div>
         </li>
     )
