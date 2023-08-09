@@ -2,32 +2,24 @@ import './App.css';
 import Header from "../Header";
 import Todos from "../Todos";
 import {useEffect, useState} from "react";
+import {GETINFO, DELETE, POST} from "../../servise/servise";
 
 function App() {
 
     const [todo, setTodo] = useState([])
 
+    const url = "http://localhost:3000/posts"
+
     useEffect(() => {
-        fetch("http://localhost:3000/posts")
-            .then((response) => {
-                return response.json();
-            })
-            .then((data) => {
-                console.log({data});
-                setTodo(data)
-            });
+        GETINFO(url, setTodo)
     }, []);
 
     const onDelete = (key) => {
-        setTodo(todo.filter((el) => el.id !== key))
-    }
-
-    const createID = () => {
-        return Math.random() * 1000;
+        DELETE(url, key, setTodo, todo);
     }
 
     const handleTodoChange = (title, description) => {
-        setTodo([...todo, {id: createID(), title: title, description: description}])
+        POST(url, title, description, setTodo, todo)
     }
 
     return (
