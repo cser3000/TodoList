@@ -13,6 +13,8 @@ export function DELETE (url, key, setFunc, data) {
         .then( () => setFunc(data.filter( (el) => el.id !== key) ) )
 }
 
+const createId = () => Math.round(Math.random() * 1000000)
+
 export function POST (url, title, description, setFunc, data) {
     fetch(url, {
         method: 'POST',
@@ -21,11 +23,12 @@ export function POST (url, title, description, setFunc, data) {
         },
         body:  JSON.stringify({
             title,
-            description
+            description,
+            id: createId(),
         })
     })
         .then((response) => response.json())
         .then((info) => {
-            setFunc([...data, info])
+            setFunc([info, ...data])
         });
 }
