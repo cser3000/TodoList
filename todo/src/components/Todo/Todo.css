@@ -1,14 +1,51 @@
 
 .todo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     margin: 20px 0;
     height: 150px;
     background-color: rgb(255, 255, 255);
     border-radius: 30px;
 }
 
-.todoContent {
+.todo-green {
+    background-color: lightgreen;
+}
 
+.todo-blue {
+    background-color: lightskyblue;
+}
+
+.btn-green {
+    background-color: lightgreen;
+}
+
+.btn-blue {
+    background-color: lightskyblue;
+}
+
+.btn-red {
+    background-color: hotpink;
+}
+
+.todoTitle {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+    overflow: hidden;
+}
+
+.todoDescription {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.textTodoTitle {
+    width: 160px;
+}
+
+p {
+    width: 300px;
 }

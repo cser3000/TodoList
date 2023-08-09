@@ -21,11 +21,10 @@ function Header({onChange}) {
     return (
         <header className="headerTodo">
             <form className="createForm">
-                <h3>title:</h3>
-                <input onChange={handleTitleChange} />
-                <h4>description:</h4>
-                <textarea onChange={handleDescriptionChange} />
-
+                <h3 className="textName">Title:</h3>
+                <input className="inputText" onChange={handleTitleChange} />
+                <h3 className="textName">Description:</h3>
+                <input className="inputText" onChange={handleDescriptionChange} />
             </form>
             <button className="createButton" onClick={handleTodoChange}>
                 add
