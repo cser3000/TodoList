@@ -1,34 +1,53 @@
 
-export function GETINFO (url, setFunc) {
-    fetch(url)
+const url = "http://localhost:3000/posts";
+
+export function GETINFO () {
+    return fetch(url)
         .then( (response) => response.json() )
-        .then( (data) => setFunc(data) )
 }
 
-export function DELETE (url, key, setFunc, data) {
-    fetch(url + '/' + String(key), {
+export function DELETE (key) {
+    return fetch(url + '/' + String(key), {
         method: 'DELETE',
     })
         .then( (response) => response.json() )
-        .then( () => setFunc(data.filter( (el) => el.id !== key) ) )
+
 }
 
 const createId = () => Math.round(Math.random() * 1000000)
 
-export function POST (url, title, description, setFunc, data) {
-    fetch(url, {
+export function POST (title, description, done = false, important = false) {
+    return fetch(url, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
         },
-        body:  JSON.stringify({
+        body: JSON.stringify({
             title,
             description,
+            done,
+            important,
             id: createId(),
         })
     })
+        .then( (response) => response.json() )
+
+}
+
+// доделать
+export function PUT (data, property) {
+   return  fetch(url + "/" + String(data.id), {
+        method: 'PUT',
+        body: JSON.stringify(
+            {
+                ...data,
+                [property]: !data[property],
+            }
+        ),
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        },
+   })
         .then((response) => response.json())
-        .then((info) => {
-            setFunc([info, ...data])
-        });
+        .then(res => res)
 }

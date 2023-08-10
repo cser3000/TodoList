@@ -5,11 +5,7 @@
     border-radius: 30px;
 }
 
-.todo-green {
-    background-color: lightgreen;
-}
-
-.todo-blue {
+.todoImportant {
     background-color: lightskyblue;
 }
 
@@ -32,6 +28,10 @@
     justify-content: center;
     padding-top: 10px;
     overflow: hidden;
+}
+
+.todoDone {
+    text-decoration: line-through;
 }
 
 .todoDescription {
