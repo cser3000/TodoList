@@ -24,12 +24,8 @@
 }
 
 .todoTitle {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    justify-content: center;
-    padding-top: 10px;
     overflow: hidden;
+    padding: 1rem;
 }
 
 .todoDone {
@@ -37,11 +33,15 @@
 }
 
 .todoDescription {
-    padding: 20px 20px 30px 100px;
-    width: 300px;
+    padding: 2rem;
     overflow: hidden;
 }
 
 .textTodoTitle {
-    width: 160px;
+    font-weight: bold;
+}
+
+.buttons {
+    padding-top: 10px;
+    padding-left: 10px;
 }

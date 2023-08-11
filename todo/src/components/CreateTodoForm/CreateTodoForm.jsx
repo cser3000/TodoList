@@ -17,6 +17,7 @@ function CreateTodoForm({onChange, onClouse}) {
 
     const handleTodoChange = () => {
         onChange(title, description);
+        onClouse();
     }
 
     return (
