@@ -1,27 +1,17 @@
 
 .headerTodo {
-    height: 300px;
+    height: 100%;
     margin: 0;
     background-color: rgb(255, 255, 255);
     border-radius: 20px;
 }
 
-.createForm {
-    width: 300px;
+.createButton {
+    display: block;
     margin: auto;
 }
 
-.createButton {
-    display: block;
-    margin: 30px auto;
-}
-
-.inputText {
-    width: 300px;
-    height: 50px;
-    border-radius: 10px;
-}
-
-.textName {
-    font-size: 20px;
+.headerContent {
+    height: 100px;
+    display: flex;
 }

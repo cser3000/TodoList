@@ -3,10 +3,12 @@
     margin: 20px 0;
     background-color: rgb(255, 255, 255);
     border-radius: 30px;
+    border: 5px dotted black;
 }
 
 .todoImportant {
     background-color: lightskyblue;
+    border: 7px dashed red;
 }
 
 .btn-green {
