@@ -1,4 +1,6 @@
 import './Todo.css';
+import CreateTodoForm from "../CreateTodoForm";
+import {useState} from "react";
 
 const PenselSvg = () => {
     return (
@@ -36,11 +38,23 @@ const RemoveSvg = () => {
 
 function Todo({data, onDelete, onChange}) {
 
-    return (
-        <li className={data.important ? "todo todoImportant" : "todo"}>
+    const [redaction, setRedaction] = useState(false);
+
+    const onClose = () => {
+        setRedaction(!redaction);
+    }
+
+    const getClass = ({done, important}) => {
+        return done ? "todo todoDone" : important ? "todo todoImportant" : "todo";
+    }
+
+    const editingForm = <CreateTodoForm  onСlose={onClose}></CreateTodoForm>
+
+    const todo = (
+        <>
             <div className="buttons">
                 <button className="todoButton btn-yellow" onClick={ () => {
-
+                    setRedaction(!redaction);
                 }}><PenselSvg/></button>
                 <button className="todoButton btn-green" onClick={ () => {
                     onChange(data, "done");
@@ -53,12 +67,18 @@ function Todo({data, onDelete, onChange}) {
                 }}><RemoveSvg/></button>
             </div>
             <div className="todoTitle">
-                <h3 className={data.done ? "textTodoTitle todoDone" : "textTodoTitle"}>{data.title}</h3>
+                <h3 className="textTodoTitle">{data.title}</h3>
 
             </div>
-            <div className={data.done ? "todoDescription todoDone" : "todoDescription"}>
+            <div className="todoDescription">
                 {data.description}
             </div>
+        </>
+    )
+
+    return (
+        <li className={getClass(data)}>
+            {redaction ? editingForm : todo}
         </li>
     )
 }

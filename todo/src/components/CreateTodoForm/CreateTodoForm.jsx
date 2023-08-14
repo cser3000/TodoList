@@ -1,7 +1,7 @@
 import "./CreateTodoForm.css";
 import {useState} from "react";
 
-function CreateTodoForm({onChange, onClouse}) {
+function CreateTodoForm({onChange, onClose}) {
 
 
     let [title, setTitle] = useState();
@@ -17,7 +17,7 @@ function CreateTodoForm({onChange, onClouse}) {
 
     const handleTodoChange = () => {
         onChange(title, description);
-        onClouse();
+        onClose();
     }
 
     return (
@@ -32,7 +32,7 @@ function CreateTodoForm({onChange, onClouse}) {
                 <button className="addButton" onClick={handleTodoChange}>
                     add
                 </button>
-                <button className="closeButton" onClick={onClouse}>
+                <button className="closeButton" onClick={onClose}>
                     close
                 </button>
             </div>

@@ -11,6 +11,11 @@
     border: 3px groove #ff0000b3;
 }
 
+.todoDone {
+    background-color: #87cefa2e;
+    border: 3px groove #90EE90FF;
+}
+
 .todoButton {
     width: 3.5rem;
     height: 3.5rem;
