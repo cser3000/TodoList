@@ -1,7 +1,7 @@
 import './Todo.css';
 import CreateTodoForm from "../CreateTodoForm";
 import {useState} from "react";
-import {PUT} from "../../servise/servise";
+import {update} from "../../servise/servise";
 
 const PenselSvg = () => {
     return (
@@ -40,7 +40,6 @@ const RemoveSvg = () => {
     )
 }
 
-
 function Todo({data, onDelete, onChange, allData, onSetTodo}) {
 
     const [redaction, setRedaction] = useState(false);
@@ -50,7 +49,7 @@ function Todo({data, onDelete, onChange, allData, onSetTodo}) {
     }
 
     const handleTodoChange = (title, description) => {
-        PUT(data, {title, description})
+        update(data, {title, description})
             .then(res => {
                 onSetTodo(allData.reduce((acc, curr) => {
                     res.id === curr.id ? acc.push(res) : acc.push(curr)
@@ -69,23 +68,41 @@ function Todo({data, onDelete, onChange, allData, onSetTodo}) {
     const todo = (
         <>
             <div className="buttons">
-                <button className="todoButton btn-yellow" onClick={() => {
-                    onOpenClose();
-                }}><PenselSvg/></button>
-                <button className="todoButton btn-green" onClick={() => {
-
-                    onChange(data, {"done": !data.done});
-                }}><CompliteSvg/></button>
-                <button className="todoButton btn-blue" onClick={() => {
-                    onChange(data, {"important": !data.important});
-                }}><StarSvg/></button>
-                <button className="todoButton btn-red" onClick={() => {
-                    onDelete(data.id);
-                }}><RemoveSvg/></button>
+                <button
+                    className="todoButton btn-yellow"
+                    onClick={() => {
+                        onOpenClose();
+                    }}
+                >
+                    <PenselSvg/>
+                </button>
+                <button
+                    className="todoButton btn-green"
+                    onClick={() => {
+                        onChange(data, {"done": !data.done});
+                    }}
+                >
+                    <CompliteSvg/>
+                </button>
+                <button
+                    className="todoButton btn-blue"
+                    onClick={() => {
+                        onChange(data, {"important": !data.important});
+                    }}
+                >
+                    <StarSvg/>
+                </button>
+                <button
+                    className="todoButton btn-red"
+                    onClick={() => {
+                        onDelete(data.id);
+                    }}
+                >
+                    <RemoveSvg/>
+                </button>
             </div>
             <div className="todoTitle">
                 <h3 className="textTodoTitle">{data.title}</h3>
-
             </div>
             <div className="todoDescription">
                 {data.description}

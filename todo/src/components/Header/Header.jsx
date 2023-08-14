@@ -4,10 +4,10 @@ import {useState} from "react";
 
 function Header({onChange}) {
 
-    const [createF, setCreateF] = useState(false)
+    const [isCreate, setIsCreate] = useState(false)
 
     const onClose = () => {
-        setCreateF(!createF);
+        setIsCreate(!isCreate);
     }
 
     const btn = <div className="headerContent"><button
@@ -18,7 +18,7 @@ function Header({onChange}) {
     return (
         <header className="headerTodo">
 
-            {createF ? create : btn}
+            {isCreate ? create : btn}
 
         </header>
     )

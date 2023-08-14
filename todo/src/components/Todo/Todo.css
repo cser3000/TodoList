@@ -59,8 +59,8 @@
 }
 
 .todoTitle {
-    overflow: hidden;
     padding: 1rem;
+    word-break: break-all;
 }
 
 .todoDone {
@@ -69,7 +69,7 @@
 
 .todoDescription {
     padding: 2rem;
-    overflow: hidden;
+    word-break: break-all;
 }
 
 .textTodoTitle {

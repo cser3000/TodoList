@@ -1,22 +1,21 @@
-
 const url = "http://localhost:3000/posts";
+const createId = () => Math.round(Math.random() * 1000000)
 
-export function GETINFO () {
+export function getAll() {
     return fetch(url)
-        .then( (response) => response.json() )
+        .then((response) => response.json())
 }
 
-export function DELETE (key) {
+export function remove(key) {
     return fetch(url + '/' + String(key), {
         method: 'DELETE',
     })
-        .then( (response) => response.json() )
+        .then((response) => response.json())
 
 }
 
-const createId = () => Math.round(Math.random() * 1000000)
 
-export function POST (title, description, done = false, important = false) {
+export function create(title, description, done = false, important = false) {
     return fetch(url, {
         method: 'POST',
         headers: {
@@ -30,12 +29,12 @@ export function POST (title, description, done = false, important = false) {
             id: createId(),
         })
     })
-        .then( (response) => response.json() )
+        .then((response) => response.json())
 
 }
 
-export function PUT (data, newInfo) {
-   return  fetch(url + "/" + String(data.id), {
+export function update(data, newInfo) {
+    return fetch(url + "/" + String(data.id), {
         method: 'PUT',
         body: JSON.stringify(
             {
@@ -46,7 +45,7 @@ export function PUT (data, newInfo) {
         headers: {
             'Content-type': 'application/json; charset=UTF-8',
         },
-   })
+    })
         .then((response) => response.json())
         .then(res => res)
 }
