@@ -38,7 +38,7 @@ function App() {
     return (
         <>
             <Header onChange={handleTodoChange}/>
-            <Todos todo={todo} onDelete={onDelete} onChange={handleChange}/>
+            <Todos todo={todo} onDelete={onDelete} onChange={handleChange} onSetTodo={setTodo}/>
         </>
     );
 }

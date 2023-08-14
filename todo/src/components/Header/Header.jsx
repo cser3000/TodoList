@@ -10,9 +10,10 @@ function Header({onChange}) {
         setCreateF(!createF);
     }
 
-    const btn = <div className="headerContent"><button className="createButton" onClick={
-        () => onClose() }>создать</button></div>;
-    const create = <CreateTodoForm onChange={onChange} onClouse={onClose}/>;
+    const btn = <div className="headerContent"><button
+        className="createButton" onClick={ () => onClose() }>создать</button></div>;
+
+    const create = <CreateTodoForm onChange={onChange} onClose={onClose}/>;
 
     return (
         <header className="headerTodo">

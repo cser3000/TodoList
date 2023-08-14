@@ -34,14 +34,13 @@ export function POST (title, description, done = false, important = false) {
 
 }
 
-// доделать
-export function PUT (data, property) {
+export function PUT (data, newInfo) {
    return  fetch(url + "/" + String(data.id), {
         method: 'PUT',
         body: JSON.stringify(
             {
                 ...data,
-                [property]: !data[property],
+                ...newInfo,
             }
         ),
         headers: {

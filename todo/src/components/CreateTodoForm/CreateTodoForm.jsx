@@ -1,14 +1,13 @@
 import "./CreateTodoForm.css";
 import {useState} from "react";
 
-function CreateTodoForm({onChange, onClose}) {
+function CreateTodoForm({onChange, onClose, data}) {
 
-
-    let [title, setTitle] = useState();
-    let [description, setDescription] = useState();
+    let [title, setTitle] = useState(data ? data.title : '');
+    let [description, setDescription] = useState(data ? data.description : '');
 
     const handleTitleChange = (e) => {
-        setTitle(e.target.value)
+        setTitle(e.target.value);
     }
 
     const handleDescriptionChange = (e) => {
@@ -24,15 +23,15 @@ function CreateTodoForm({onChange, onClose}) {
         <>
             <form className="createForm">
                 <h3 className="textName">Title:</h3>
-                <input className="inputText" onChange={handleTitleChange} />
+                <input className="inputText" onChange={handleTitleChange} value={title}/>
                 <h3 className="textName">Description:</h3>
-                <input className="inputText" onChange={handleDescriptionChange} />
+                <input className="inputText" onChange={handleDescriptionChange} value={description}/>
             </form>
             <div className="formButtons">
                 <button className="addButton" onClick={handleTodoChange}>
                     add
                 </button>
-                <button className="closeButton" onClick={onClose}>
+                <button className="closeButton" onClick={() => onClose()}>
                     close
                 </button>
             </div>
