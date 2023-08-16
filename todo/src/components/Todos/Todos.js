@@ -1,16 +1,23 @@
 import './Todos.css';
 import Todo from "../Todo";
+import {useDispatch, useSelector} from "react-redux";
+import {useEffect} from "react";
+import {getAllInfo} from "../../store/todoThunk";
 
-function Todos({todo, onDelete, onChange, onSetTodo}) {
+function Todos() {
+    const todos = useSelector(state => state.data.todos);
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(getAllInfo())
+    }, [dispatch]);
 
     return (
         <main className="todoMain">
             <h1>Задачи</h1>
             <ul className="todos">
-                {todo.map((data) => {
-                    return <Todo key={data.id} data={data}
-                                 onDelete={onDelete} onChange={onChange}
-                                 allData={todo} onSetTodo={onSetTodo}/>
+                {todos.map((data) => {
+                    return <Todo key={data.id} data={data}/>
                 })}
             </ul>
         </main>

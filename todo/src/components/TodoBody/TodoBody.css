@@ -1,0 +1,65 @@
+
+.todoButton {
+    width: 3.5rem;
+    height: 3.5rem;
+    margin-right: 10px;
+}
+
+.btn-yellow {
+    background-color: #87cefa2e;
+    border-color: #d3a9e7;
+}
+
+.btn-yellow:hover {
+    background-color: #d3a9e7;
+}
+
+.btn-green {
+    background-color: #87cefa2e;
+    border-color: #90EE90FF;
+}
+
+.btn-green:hover {
+    background-color: #90EE90FF;
+}
+
+.btn-blue {
+    background-color: #87cefa2e;
+    border-color: #87CEFAFF;
+}
+
+.btn-blue:hover {
+    background-color: #87CEFAFF;
+}
+
+.btn-red {
+    background-color: #87cefa2e;
+    border-color: #ff00008c;
+}
+
+.btn-red:hover {
+    background-color: #ff00008c;
+}
+
+.todoTitle {
+    padding: 1rem;
+    word-break: break-all;
+}
+
+.todoDone {
+    text-decoration: line-through;
+}
+
+.todoDescription {
+    padding: 2rem;
+    word-break: break-all;
+}
+
+.textTodoTitle {
+    font-weight: bold;
+}
+
+.buttons {
+    padding-top: 10px;
+    padding-left: 10px;
+}
