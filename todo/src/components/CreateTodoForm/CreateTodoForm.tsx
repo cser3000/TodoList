@@ -1,16 +1,16 @@
 import "./CreateTodoForm.css";
-import {useState} from "react";
+import {SetStateAction, useState} from "react";
 
 function CreateTodoForm({onChange, onClose, data}): JSX.Element {
 
-    let [title, setTitle] = useState(data ? data.title : '');
-    let [description, setDescription] = useState(data ? data.description : '');
+    let [title, setTitle] = useState<string>(data ? data.title : '');
+    let [description, setDescription] = useState<string>(data ? data.description : '');
 
     const handleTitleChange = (e: { target: { value: string; }; }): void => {
         setTitle(e.target.value);
     }
 
-    const handleDescriptionChange = (e: { target: { value: string; }; }): void => {
+    const handleDescriptionChange = (e: { target: { value: SetStateAction<string>; }; }): void => {
         setDescription(e.target.value);
     }
 

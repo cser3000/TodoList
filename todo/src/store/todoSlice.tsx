@@ -8,11 +8,11 @@ export type Todo = {
     id?: number;
 }
 
-export type Todos = {
+export type StateTodos = {
     todos: Todo[];
 }
 
-const initialState: Todos = {
+const initialState: StateTodos = {
     todos: [],
 }
 
@@ -20,17 +20,17 @@ const todoSlice = createSlice({
     name: "todos",
     initialState,
     reducers: {
-        getTodos(state, action) {
+        getTodos(state: StateTodos, action: PayloadAction<Todo[]>) {
             state.todos = action.payload;
         },
-        addTodo(state, action: PayloadAction<Todo>) {
+        addTodo(state: StateTodos, action: PayloadAction<Todo>) {
             state.todos.unshift(action.payload);
         },
-        removeTodo(state, action: PayloadAction<number>) {
+        removeTodo(state: StateTodos, action: PayloadAction<number>) {
             state.todos = state.todos.filter((el) => el.id !== action.payload);
         },
-        updateTodos(state, action: PayloadAction<Todo>) {
-            state.todos = state.todos.reduce((acc, curr) => {
+        updateTodos(state: StateTodos, action: PayloadAction<Todo>) {
+            state.todos = state.todos.reduce((acc: Todo[], curr: Todo) => {
                 action.payload.id === curr.id ? acc.push(action.payload) : acc.push(curr)
                 return acc
             }, [])
@@ -38,9 +38,11 @@ const todoSlice = createSlice({
     }
 });
 
-export const {getTodos,
+export const {
+    getTodos,
     addTodo,
     removeTodo,
-    updateTodos} = todoSlice.actions;
+    updateTodos
+} = todoSlice.actions;
 
 export default todoSlice.reducer;

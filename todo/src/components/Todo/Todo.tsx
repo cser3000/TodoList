@@ -7,7 +7,7 @@ import {useAppDispatch} from "../../hook";
 
 function Todo({data}): JSX.Element {
 
-    const [redaction, setRedaction] = useState(false);
+    const [redaction, setRedaction] = useState<boolean>(false);
 
     const dispatch = useAppDispatch();
 

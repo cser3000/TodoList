@@ -7,7 +7,7 @@ import {Todo} from "../../store/todoSlice";
 
 function Header(): JSX.Element {
 
-    const [isCreate, setIsCreate] = useState(false)
+    const [isCreate, setIsCreate] = useState<boolean>(false)
 
     const dispatch = useAppDispatch();
 
