@@ -5,7 +5,6 @@ import {updateItem} from "../../store/todoThunk";
 import {useDispatch} from "react-redux";
 import TodoBody from "../TodoBody";
 
-
 function Todo({data}) {
 
     const [redaction, setRedaction] = useState(false);
@@ -17,6 +16,7 @@ function Todo({data}) {
     }
 
     const updateTodos = (property) => {
+        // @ts-ignore
         dispatch(updateItem(data, property));
     }
 

@@ -2,16 +2,19 @@ import "./TodoBody.css";
 import {removeItem, updateItem} from "../../store/todoThunk";
 import {useDispatch} from "react-redux";
 import {CompliteSvg, PenselSvg, RemoveSvg, StarSvg} from "../../assets/icons/icons";
+// import React = require("react");
 
 function TodoBody({data, onOpenClose}) {
 
     const dispatch = useDispatch();
 
     const updateTodos = (data, property) => {
+        // @ts-ignore
         dispatch(updateItem(data, property));
     }
 
     const deleteTodo = (key) => {
+        // @ts-ignore
         dispatch(removeItem(key));
     }
 

@@ -10,7 +10,8 @@ function Header() {
 
     const dispatch = useDispatch()
 
-    const createTodo = (title, description) => {
+    const createTodo = ({title, description}) => {
+        // @ts-ignore
         dispatch(createItem({title, description}))
     }
 
@@ -21,7 +22,7 @@ function Header() {
     const btn = <div className="headerContent"><button
         className="createButton" onClick={ () => onClose() }>создать</button></div>;
 
-    const create = <CreateTodoForm onChange={createTodo} onClose={onClose}/>;
+    const create = <CreateTodoForm onChange={createTodo} onClose={onClose} data={undefined}/>;
 
     return (
         <header className="headerTodo">

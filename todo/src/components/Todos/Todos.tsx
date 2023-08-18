@@ -3,12 +3,15 @@ import Todo from "../Todo";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import {getAllInfo} from "../../store/todoThunk";
+// import React = require('react');
 
 function Todos() {
+    // @ts-ignore
     const todos = useSelector(state => state.data.todos);
     const dispatch = useDispatch()
 
     useEffect(() => {
+        // @ts-ignore
         dispatch(getAllInfo())
     }, [dispatch]);
 
