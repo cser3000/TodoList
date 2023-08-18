@@ -1,20 +1,18 @@
 import "./TodoBody.css";
 import {removeItem, updateItem} from "../../store/todoThunk";
-import {useDispatch} from "react-redux";
 import {CompliteSvg, PenselSvg, RemoveSvg, StarSvg} from "../../assets/icons/icons";
-// import React = require("react");
+import {useAppDispatch} from "../../hook";
+import {Todo} from "../../store/todoSlice";
 
-function TodoBody({data, onOpenClose}) {
+function TodoBody({data, onOpenClose}): JSX.Element {
 
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
-    const updateTodos = (data, property) => {
-        // @ts-ignore
+    const updateTodos = (data: Todo, property: Todo): void => {
         dispatch(updateItem(data, property));
     }
 
-    const deleteTodo = (key) => {
-        // @ts-ignore
+    const deleteTodo = (key: number): void => {
         dispatch(removeItem(key));
     }
 
@@ -23,7 +21,7 @@ function TodoBody({data, onOpenClose}) {
             <div className="buttons">
                 <button
                     className="todoButton btn-yellow"
-                    onClick={() => {
+                    onClick={(): void => {
                         onOpenClose();
                     }}
                 >
@@ -31,7 +29,7 @@ function TodoBody({data, onOpenClose}) {
                 </button>
                 <button
                     className="todoButton btn-green"
-                    onClick={() => {
+                    onClick={(): void => {
                         updateTodos(data, {"done": !data.done});
                     }}
                 >
@@ -39,7 +37,7 @@ function TodoBody({data, onOpenClose}) {
                 </button>
                 <button
                     className="todoButton btn-blue"
-                    onClick={() => {
+                    onClick={(): void => {
                         updateTodos(data, {"important": !data.important});
                     }}
                 >
@@ -47,7 +45,7 @@ function TodoBody({data, onOpenClose}) {
                 </button>
                 <button
                     className="todoButton btn-red"
-                    onClick={() => {
+                    onClick={(): void => {
                         deleteTodo(data.id);
                     }}
                 >

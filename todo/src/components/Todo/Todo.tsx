@@ -2,32 +2,31 @@ import './Todo.css';
 import CreateTodoForm from "../CreateTodoForm";
 import {useState} from "react";
 import {updateItem} from "../../store/todoThunk";
-import {useDispatch} from "react-redux";
 import TodoBody from "../TodoBody";
+import {useAppDispatch} from "../../hook";
 
-function Todo({data}) {
+function Todo({data}): JSX.Element {
 
     const [redaction, setRedaction] = useState(false);
 
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
-    const getClass = ({done, important}) => {
+    const getClass = ({done, important}): string => {
         return done ? "todo todoDone" : important ? "todo todoImportant" : "todo";
     }
 
-    const updateTodos = (property) => {
-        // @ts-ignore
+    const updateTodos = (property: object): void => {
         dispatch(updateItem(data, property));
     }
 
-    const onOpenClose = () => {
+    const onOpenClose = (): void => {
         setRedaction(!redaction);
     }
 
-    const editingForm = <CreateTodoForm
+    const editingForm: JSX.Element = <CreateTodoForm
         onChange={updateTodos} onClose={onOpenClose} data={data}/>
 
-    const todo = (
+    const todo: JSX.Element = (
         <TodoBody data={data} onOpenClose={onOpenClose}></TodoBody>
     )
 

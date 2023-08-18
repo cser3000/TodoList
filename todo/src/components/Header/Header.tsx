@@ -2,27 +2,27 @@ import './Header.css';
 import CreateTodoForm from "../CreateTodoForm";
 import {useState} from "react";
 import {createItem} from "../../store/todoThunk";
-import {useDispatch} from "react-redux";
+import {useAppDispatch} from "../../hook";
+import {Todo} from "../../store/todoSlice";
 
-function Header() {
+function Header(): JSX.Element {
 
     const [isCreate, setIsCreate] = useState(false)
 
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch();
 
-    const createTodo = ({title, description}) => {
-        // @ts-ignore
+    const createTodo = ({title, description}: Todo): void => {
         dispatch(createItem({title, description}))
     }
 
-    const onClose = () => {
+    const onClose = (): void => {
         setIsCreate(!isCreate);
     }
 
-    const btn = <div className="headerContent"><button
+    const btn: JSX.Element = <div className="headerContent"><button
         className="createButton" onClick={ () => onClose() }>создать</button></div>;
 
-    const create = <CreateTodoForm onChange={createTodo} onClose={onClose} data={undefined}/>;
+    const create: JSX.Element = <CreateTodoForm onChange={createTodo} onClose={onClose} data={undefined}/>;
 
     return (
         <header className="headerTodo">

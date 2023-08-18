@@ -1,17 +1,14 @@
 import './Todos.css';
 import Todo from "../Todo";
-import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import {getAllInfo} from "../../store/todoThunk";
-// import React = require('react');
+import {useAppDispatch, useAppSelector} from "../../hook";
 
-function Todos() {
-    // @ts-ignore
-    const todos = useSelector(state => state.data.todos);
-    const dispatch = useDispatch()
+function Todos(): JSX.Element {
+    const todos = useAppSelector(state => state.data.todos);
+    const dispatch = useAppDispatch();
 
-    useEffect(() => {
-        // @ts-ignore
+    useEffect((): void => {
         dispatch(getAllInfo())
     }, [dispatch]);
 
@@ -19,8 +16,8 @@ function Todos() {
         <main className="todoMain">
             <h1>Задачи</h1>
             <ul className="todos">
-                {todos.map((data) => {
-                    return <Todo key={data.id} data={data}/>
+                {todos.map((todo) => {
+                    return <Todo key={todo.id} data={todo}/>
                 })}
             </ul>
         </main>
