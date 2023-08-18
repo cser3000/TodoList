@@ -1,15 +1,15 @@
 import {Key} from "react";
 import {Todo} from "../store/todoSlice";
 
-const url = "http://localhost:3000/posts";
+const url: string = "http://localhost:3000/posts";
 const createId = () => Math.round(Math.random() * 1000000)
 
-export function getAll() {
+export function getAll(): Promise<any> {
     return fetch(url)
         .then((response) => response.json())
 }
 
-export function remove(key: Key) {
+export function remove(key: Key): Promise<any> {
     return fetch(url + '/' + String(key), {
         method: 'DELETE',
     })
@@ -20,7 +20,7 @@ export function remove(key: Key) {
 
 export function create(title: string, description: string,
                        done: boolean = false,
-                       important: boolean = false) {
+                       important: boolean = false): Promise<any> {
     return fetch(url, {
         method: 'POST',
         headers: {
@@ -38,7 +38,7 @@ export function create(title: string, description: string,
 
 }
 
-export function update(data: Todo, newInfo: Todo) {
+export function update(data: Todo, newInfo: Todo): Promise<any> {
     return fetch(url + "/" + String(data.id), {
         method: 'PUT',
         body: JSON.stringify(

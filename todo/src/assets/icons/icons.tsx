@@ -1,5 +1,5 @@
 
-export const PenselSvg = (): JSX.Element => {
+export const PencilSvg = (): JSX.Element => {
     return (
         <svg width="40px" height="40px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -9,7 +9,7 @@ export const PenselSvg = (): JSX.Element => {
     )
 }
 
-export const CompliteSvg = (): JSX.Element => {
+export const CompletedSvg = (): JSX.Element => {
     return (
         <svg fill="#000000" width="40px" height="40px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
             <path d="M5 16.577l2.194-2.195 5.486 5.484L24.804 7.743 27 9.937l-14.32 14.32z"/>

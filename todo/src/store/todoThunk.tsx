@@ -6,12 +6,12 @@ export const getAllInfo = () => (dispatch): void => {
         .then(data => dispatch(getTodos(data.reverse())))
 }
 
-export const createItem = (data: Todo) =>  (dispatch) => {
+export const createItem = (data: Todo) =>  (dispatch): void => {
     create(data.title, data.description)
         .then(res => dispatch(addTodo(res)));
 };
 
-export const removeItem = (key) => (dispatch): void => {
+export const removeItem = (key: number) => (dispatch): void => {
     remove(key)
         .then(() => {
             dispatch(removeTodo(key))

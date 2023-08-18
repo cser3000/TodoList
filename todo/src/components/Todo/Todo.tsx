@@ -23,8 +23,9 @@ function Todo({data}): JSX.Element {
         setRedaction(!redaction);
     }
 
-    const editingForm: JSX.Element = <CreateTodoForm
-        onChange={updateTodos} onClose={onOpenClose} data={data}/>
+    const editingForm: JSX.Element = (
+        <CreateTodoForm onChange={updateTodos} onClose={onOpenClose} data={data}/>
+    )
 
     const todo: JSX.Element = (
         <TodoBody data={data} onOpenClose={onOpenClose}></TodoBody>

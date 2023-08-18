@@ -1,6 +1,6 @@
 import "./TodoBody.css";
 import {removeItem, updateItem} from "../../store/todoThunk";
-import {CompliteSvg, PenselSvg, RemoveSvg, StarSvg} from "../../assets/icons/icons";
+import {PencilSvg, CompletedSvg, RemoveSvg, StarSvg} from "../../assets/icons/icons";
 import {useAppDispatch} from "../../hook";
 import {Todo} from "../../store/todoSlice";
 
@@ -25,7 +25,7 @@ function TodoBody({data, onOpenClose}): JSX.Element {
                         onOpenClose();
                     }}
                 >
-                    <PenselSvg/>
+                    <PencilSvg/>
                 </button>
                 <button
                     className="todoButton btn-green"
@@ -33,7 +33,7 @@ function TodoBody({data, onOpenClose}): JSX.Element {
                         updateTodos(data, {"done": !data.done});
                     }}
                 >
-                    <CompliteSvg/>
+                    <CompletedSvg/>
                 </button>
                 <button
                     className="todoButton btn-blue"

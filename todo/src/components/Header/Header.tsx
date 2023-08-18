@@ -26,9 +26,7 @@ function Header(): JSX.Element {
 
     return (
         <header className="headerTodo">
-
             {isCreate ? create : btn}
-
         </header>
     )
 }
