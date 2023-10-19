@@ -28,9 +28,7 @@ export function create(title, description, done = false, important = false) {
             important,
             id: createId(),
         })
-    })
-        .then((response) => response.json())
-
+    }).then((response) => response.json())
 }
 
 export function update(data, newInfo) {
