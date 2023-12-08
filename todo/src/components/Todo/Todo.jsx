@@ -2,6 +2,7 @@ import './Todo.css';
 import CreateTodoForm from "../CreateTodoForm";
 import {useState} from "react";
 import {update} from "../../servise/servise";
+import {Draggable} from "react-beautiful-dnd";
 
 const PenselSvg = () => {
     return (
@@ -66,7 +67,7 @@ function Todo({data, onDelete, onChange, allData, onSetTodo}) {
         onChange={handleTodoChange} onClose={() => onOpenClose()} data={data}/>
 
     const todo = (
-        <>
+        <Draggable>
             <div className="buttons">
                 <button
                     className="todoButton btn-yellow"
@@ -107,7 +108,7 @@ function Todo({data, onDelete, onChange, allData, onSetTodo}) {
             <div className="todoDescription">
                 {data.description}
             </div>
-        </>
+        </Draggable>
     )
 
     return (
